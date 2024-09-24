@@ -17,5 +17,20 @@
                 <a href="#" class="px-[20px] py-[10px] hover:bg-blue-300">Contact</a>
             </div>
         </div>
+        {% if data %}
+        <div class="table">
+            <table>
+            {% for row in data %}
+                <tr>
+                {% for column in row %}
+                    <td>{{ column }}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        {% else %}
+            <p>No data available.</p>
+        {% endif %}
     </body>
 </html>

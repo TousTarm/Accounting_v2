@@ -1,0 +1,13 @@
+ {% if data %}
+    <div class="table">
+    {% for row in data %}
+        <div class="row">
+        {% for column in row %}
+            <div class="box">{{ column }}</div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <p>No data available.</p>
+{% endif %}
