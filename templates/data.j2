@@ -17,20 +17,27 @@
                 <a href="#" class="px-[20px] py-[10px] hover:bg-blue-300">Contact</a>
             </div>
         </div>
-        {% if data %}
         <div class="table">
-            <table>
+        {% if data %}
             {% for row in data %}
-                <tr>
-                {% for column in row %}
-                    <td>{{ column }}</td>
-                {% endfor %}
-                </tr>
+                <div class="row">
+                    <div class="date">{{ row[0] }}</div>
+                        {% if row[1]|int > 0 %}
+                    <div class="amount positive">{{ row[1] }}</div>
+                    {% else %}
+                        <div class="amount negative">{{ row[1] }}</div>
+                    {% endif %}
+                    <div class="date">{{ row[2] }}</div>
+                    <div class="note">{{ row[3] }}</div>
+                    <div class="edit">...</div>
+                </div>
             {% endfor %}
-            </table>
-        </div>
         {% else %}
             <p>No data available.</p>
         {% endif %}
+        </div>
+        <div>
+            {{ subtotal }}
+        </div>
     </body>
 </html>

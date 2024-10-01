@@ -32,11 +32,17 @@ def upload_file():
             csv_data.append(row)
 
         data = []
+        subtotal = 0
         for row in csv_data[3:]:
-            formatted_row = [row[1], row[2], row[3],row[7], row[14]]#filter
+            
+            new_string = row[2].replace(",",".")
+            row[2] = new_string
+            subtotal += float(row[2])
+            subtotal = int(subtotal)
+            formatted_row = [row[1], row[2], row[7], row[14]]#filter
             data.append(formatted_row)
 
-        return render_template('data.j2', data=data)
+        return render_template('data.j2', data=data, subtotal=subtotal)
 
 @app.route('/data')
 def data():

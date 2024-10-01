@@ -1,13 +1,19 @@
- {% if data %}
-    <div class="table">
+<div class="table">
+    <table>
     {% for row in data %}
-        <div class="row">
+        <tr>
         {% for column in row %}
-            <div class="box">{{ column }}</div>
+            <td>{{ column }}</td>
         {% endfor %}
-        </div>
+        </tr>
     {% endfor %}
-    </div>
-{% else %}
-    <p>No data available.</p>
-{% endif %}
+    </table>
+</div>
+
+data = []
+data.append("<div class='first_row'><div class='date'>Date</div><div class='amount'>Amount</div><div class='note'>Notes</div><div class='account'>Account</div><div class='edit'>Edit</div></div>")
+
+for row in csv_data[3:]:
+    formatted_row = "<div class='row'><div class='date'>"+row[1]+"</div><div class='amount'>"+row[2]+"</div><div class='note'>"+row[14]+"</div><div class='account'>"+row[7]+"</div><div class='edit'>...</div></div>"
+    data.append(formatted_row)
+print(data)

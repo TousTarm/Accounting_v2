@@ -10,7 +10,35 @@
     display:flex;
     flex-direction: column;
 }
-.row{
-    border:2px solid red;
+td,th{
+    border: 1px solid black;
+}
+.row ,.first_row{
     display:flex;
+}
+.date,.amount,.account,.note,.edit{
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+}
+.date{
+    width: 10%;
+}
+.amount{
+    width: 10%;
+}
+.note{
+    width: 50%;
+}
+.account{
+    width: 10%;
+}
+.edit{
+    width:20%;
+}
+.negative{
+    background-color: rgb(248, 101, 101);
+}
+.positive{
+    background-color: rgb(87, 228, 87);
 }
