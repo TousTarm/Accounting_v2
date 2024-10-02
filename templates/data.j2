@@ -17,27 +17,31 @@
                 <a href="#" class="px-[20px] py-[10px] hover:bg-blue-300">Contact</a>
             </div>
         </div>
-        <div class="table">
-        {% if data %}
-            {% for row in data %}
-                <div class="row">
-                    <div class="date">{{ row[0] }}</div>
-                        {% if row[1]|int > 0 %}
-                    <div class="amount positive">{{ row[1] }}</div>
-                    {% else %}
-                        <div class="amount negative">{{ row[1] }}</div>
-                    {% endif %}
-                    <div class="date">{{ row[2] }}</div>
-                    <div class="note">{{ row[3] }}</div>
-                    <div class="edit">...</div>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>No data available.</p>
-        {% endif %}
-        </div>
-        <div>
-            {{ subtotal }}
+        <div class="main flex flex-col w-[70%] ml-auto mr-auto">
+            <div class="table border-2 border-black">
+            {% if data %}
+                {% for row in data %}
+                    <div class="row">
+                        <div class="date">{{ row[0] }}</div>
+                            {% if row[1]|int > 0 %}
+                        <div class="amount positive">{{ row[1] }}</div>
+                        {% else %}
+                            <div class="amount negative">{{ row[1] }}</div>
+                        {% endif %}
+                        <div class="date">{{ row[2] }}</div>
+                        <div class="note">{{ row[3] }}</div>
+                        <div class="edit">...</div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No data available.</p>
+            {% endif %}
+            </div>
+            <div class="flex flex-col">
+                <p>Result: {{ total }}</p>
+                <p>Gain: {{ positive }}</p>
+                <p>Loss: {{ negative }}</p>
+            </div>
         </div>
     </body>
 </html>

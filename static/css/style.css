@@ -1,15 +1,6 @@
 #file{
     display:none
 }
-
-.table{
-    margin-left:auto;
-    margin-right:auto;
-    width: 70%;
-    border: 2px solid black;
-    display:flex;
-    flex-direction: column;
-}
 td,th{
     border: 1px solid black;
 }

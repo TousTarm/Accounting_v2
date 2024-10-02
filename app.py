@@ -32,17 +32,23 @@ def upload_file():
             csv_data.append(row)
 
         data = []
-        subtotal = 0
+        total = 0
+        positive = 0
+        negative = 0
         for row in csv_data[3:]:
             
             new_string = row[2].replace(",",".")
             row[2] = new_string
-            subtotal += float(row[2])
-            subtotal = int(subtotal)
+            total += int(float(row[2]))
+            if(int(float(row[2])) > 0):
+                positive += (int(float(row[2])))
+            else:
+                negative += (int(float(row[2])))
+
             formatted_row = [row[1], row[2], row[7], row[14]]#filter
             data.append(formatted_row)
 
-        return render_template('data.j2', data=data, subtotal=subtotal)
+        return render_template('data.j2',data=data,total=total,positive=positive,negative=negative)
 
 @app.route('/data')
 def data():
